@@ -1,5 +1,4 @@
 import React from "react";
-import { Form } from "semantic-ui-react";
 import { connect } from "react-redux";
 import {
   addNewBook,
@@ -32,7 +31,8 @@ class AddBook extends React.Component {
     });
   };
 
-  handleAddBook = () => {
+  handleAddBook = (e) => {
+    e.preventDefault()
     const bookData = { ...this.state };
     this.props.addNewBook(bookData, this.props.userInfo.id);
   };
@@ -42,36 +42,35 @@ class AddBook extends React.Component {
       <React.Fragment>
         <GoogleShelf data={this.props.googleBook} />
 
-        <Form style={{ padding: "2vh", margin: "auto" }}>
+        <form>
           <p
             className="profileHeader"
-            style={{ color: "#61892F", textAlign: "center" }}
           >
-            <b>ADD A NEW BOOK TO YOUR BOOKSHELF</b>
+            <b>Add a new book to your shelf</b>
           </p>
 
-          <Form.Input
+          <input
             className="bookTitle"
             placeholder="Title"
             type="text"
             name="title"
             onChange={this.updateBookState}
           />
-          <Form.Input
+          <input
             className="bookAuthor"
             placeholder="Author"
             type="text"
             name="author"
             onChange={this.updateBookState}
           />
-          <Form.Input
+          <input
             className=""
             placeholder="*optional isbn10*"
             type="text"
             name="isbn10"
             onChange={this.updateBookState}
           />
-          <Form.Input
+          <input
             className=""
             placeholder="*optional isbn13*"
             type="text"
@@ -79,14 +78,13 @@ class AddBook extends React.Component {
             onChange={this.updateBookState}
           />
 
-          <Form.Button
-            style={{ backgroundColor: "#86C232", color: "white" }}
+          <button
             className="addBook"
             onClick={this.handleAddBook}
           >
             Add Book
-          </Form.Button>
-        </Form>
+          </button>
+        </form>
       </React.Fragment>
     );
   }

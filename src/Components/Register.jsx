@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Form } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { register, getAllUsers } from "../Redux/Actions/ActLoginRegister";
 import { getAllMessages } from "../Redux/Actions/ActSendMessage";
@@ -22,7 +21,8 @@ class Register extends Component {
     this.props.getAllBooks();
   }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
     const { username } = this.state;
 
     const checkExistingUsers = this.props.allUsers.filter(
@@ -67,15 +67,14 @@ class Register extends Component {
 
   render() {
     return (
-      <Form style={{ padding: "1vh", margin: "auto" }}>
+      <form style={{ padding: "1vh", margin: "auto" }}>
         <p
           className="profileHeader"
-          style={{ color: "#61892F", textAlign: "center" }}
         >
-          <b>STILL NEED AN ACCOUNT? &ensp; SIGN UP BELOW.</b>
+          <b>Still need an account? &ensp; Sign up below.</b>
         </p>
 
-        <Form.Input
+        <input
           className="displayName"
           placeholder="Display Name"
           type="text"
@@ -83,7 +82,7 @@ class Register extends Component {
           value={this.state.displayName}
           onChange={this.updateUserInput}
         />
-        <Form.Input
+        <input
           className="username"
           autoComplete="username"
           placeholder="Username"
@@ -92,7 +91,7 @@ class Register extends Component {
           value={this.state.username}
           onChange={this.updateUserInput}
         />
-        <Form.Input
+        <input
           className="password"
           placeholder="Password"
           autoComplete="new-password"
@@ -101,7 +100,7 @@ class Register extends Component {
           value={this.state.password}
           onChange={this.updateUserInput}
         />
-        <Form.Input
+        <input
           className="reenterPassword"
           placeholder="Re-Enter Password"
           autoComplete="new-password"
@@ -110,14 +109,13 @@ class Register extends Component {
           value={this.state.reenterPassword}
           onChange={this.updateUserInput}
         />
-        <Form.Button
-          style={{ backgroundColor: "#86C232", color: "white" }}
+        <button
           className="submit"
           onClick={this.handleSubmit}
         >
           Sign Up
-        </Form.Button>
-      </Form>
+        </button>
+      </form>
     );
   }
 }

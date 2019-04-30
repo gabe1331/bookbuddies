@@ -1,42 +1,31 @@
 // when making a new component, every component needs to import react and connect, to properly make component and connect to redux store
 import React from "react";
 import { connect } from "react-redux";
-import BookBuddiesinfo from "../images/BookBuddiesinfoCropped.jpg";
 import Header from "./Header";
-import Footer from "./Footer";
 import Login from "./Login";
 
 import Register from "./Register";
 
-import { Container, Modal, Grid, Button, Image } from "semantic-ui-react";
-
 class HomePage extends React.Component {
   render() {
     return (
-      <Container
-        style={{ backgroundColor: "#474B4F" }}
-        fluid
+      <div
         id="homepagecontainer"
       >
         <Header />
 
-        <Container fluid>
-          <Grid>
-            <Grid.Row columns={2}>
-              <Grid.Column id="homepageinfo">
-                <Image className="homePicture" src={BookBuddiesinfo} />
-              </Grid.Column>
+        <section>
+          <div>
+            <div className="row">
 
-              <Grid.Column
+              <div
                 id="divider"
-                textAlign="center"
                 className="loginRegister"
-                verticalAlign='middle'
               >
-                <Modal
+                <div
                   size="tiny"
                   trigger={
-                    <Button
+                    <button
                       style={{
                         backgroundColor: "#86C232",
                         color: "white",
@@ -45,20 +34,18 @@ class HomePage extends React.Component {
                       }}
                     >
                       Login
-                    </Button>
+                    </button>
                   }
-                  closeIcon
                 >
                   <Login />
-                </Modal>
+                </div>
 
                 <Register />
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Container>
-        <Footer />
-      </Container>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     );
   }
 }

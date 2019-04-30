@@ -1,21 +1,7 @@
-.developers {
-  font-weight: bold;
-  color: white;
+nav {
+    background: lightgrey;
+    padding: 15px 0;
 }
-
-.teamName {
-  color: white;
-}
-
-.address {
-  color: white;
-}
-
-/* #feed {
-  display: flex;
-  justify-content: center;
-} */
-
 #rating {
   float: right;
 }
@@ -46,29 +32,32 @@
   min-width: 35vh;
   
 }
-
 .loginHeader {
-  color: #61892f;
   font-size: 3vh;
   margin-top: 1vh !important;
 }
-
 #homepagecontainer {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  background-color: #222629;
   height: 75%;
 }
 .headerNav {
   height: 25vh;
 }
-
-.bookStyle {
-  width: 30vh !important;
-  
+.headerImg {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    background-color: black;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: auto;
 }
-
+.bookStyle {    
+  width: 30vh !important;
+}
 .bookImage {
   object-fit: contain !important;
 }
@@ -77,35 +66,6 @@
   width: 100vw;
   background-image: url('./images/ErrorPage.png')
 }
-
 .searchBarGoogle {
   width: 60vh;
-  
 }
-/* .custFooter {
-  height: 25vh;
-} */
-
-
-/* #homepageinfo {
-  position: absolute;
-  right: 70%;
-  display: flex;
-  height: 375px;
-  
-  
-} */
-/* #homepageregister {
-  position: relative;
-  left:70%;
-} */
-
-/* #blah {
- height: 500px;
- width: 800px;
-  border: 2px solid black;
-  position: relative;
-  right: 50px;
-  
-} */
-

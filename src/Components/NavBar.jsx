@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Button, Menu, Icon, Modal } from "semantic-ui-react";
-import AddBook from "./AddBook";
 import { logout } from "../Redux/Actions/ActLogout";
 import { to_main, to_profile } from "../Redux/Actions/ActNavBar";
 import { getAllBooks } from '../Redux/Actions/ActBooks';
@@ -9,56 +7,30 @@ import { connect } from "react-redux";
 export class NavBar extends Component {
   render() {
     return (
-      <Menu
-        style={{ backgroundColor: "#474B4F", margin: "0" }}
+      <nav
         className="stickyMenu"
-        fluid
       >
-        <Menu.Menu>
-          <Menu.Item>
-            <Button
+        <ul>
+            <button
               onClick={this.props.to_profile}
               style={{ backgroundColor: "#86C232", color: "white" }}
             >
               Profile
-            </Button>
-          </Menu.Item>
-        </Menu.Menu>
-        <Menu.Menu>
-          <Menu.Item>
-            <Button
-              onClick={this.props.to_main}
-              style={{ backgroundColor: "#86C232", color: "white" }}
+            </button>
+                <button
+                onClick={this.props.to_main}
+                style={{ backgroundColor: "#86C232", color: "white" }}
+                >
+                Main Page
+                </button>
+            <button
+                onClick={this.props.logout}
+                style={{ backgroundColor: "#86C232", color: "white" }}
             >
-              Main Page
-            </Button>
-          </Menu.Item>
-        </Menu.Menu>
-        <Menu.Menu>
-          <Menu.Item>
-            <Modal
-              onClose={() => this.props.getAllBooks()}
-              trigger={
-                <Button style={{ backgroundColor: "#86C232", color: "white" }}>
-                  <Icon name="plus" corner />
-                  Add Book
-                </Button>
-              }
-              closeIcon
-            >
-              <AddBook />
-            </Modal>
-          </Menu.Item>
-        </Menu.Menu>
-        <Menu.Item position="right">
-          <Button
-            onClick={this.props.logout}
-            style={{ backgroundColor: "#86C232", color: "white" }}
-          >
-            Logout
-          </Button>
-        </Menu.Item>
-      </Menu>
+                Logout
+            </button>
+        </ul>
+    </nav>
     );
   }
 }

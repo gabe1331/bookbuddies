@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container, Form } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { login } from "../Redux/Actions/ActLoginRegister";
 
@@ -12,7 +11,8 @@ class Login extends Component {
     ...initialState
   };
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
     this.props.login(this.state.username, this.state.password);
     this.setState({ ...initialState });
   };
@@ -28,13 +28,13 @@ class Login extends Component {
 
   render() {
     return (
-      <Container textAlign="center">
-        <Form style={{ padding: "1vh", backgroundColor: "#474B4F" }}>
+      <div>
+        <form>
           <p className="loginHeader">
             <b>Login</b>
           </p>
 
-          <Form.Input
+          <input
             autoFocus={true}
             className="username"
             placeholder="Username"
@@ -44,7 +44,7 @@ class Login extends Component {
             name="username"
             onChange={this.updateInput}
           />
-          <Form.Input
+          <input
             className="password"
             placeholder="Password"
             type="password"
@@ -55,15 +55,14 @@ class Login extends Component {
             onKeyPress={this.handleEnter}
           />
 
-          <Form.Button
+          <button
             className="submit"
-            style={{ backgroundColor: "#86C232", color: "white" }}
             onClick={this.handleSubmit}
           >
             Submit
-          </Form.Button>
-        </Form>
-      </Container>
+          </button>
+        </form>
+      </div>
     );
   }
 }
